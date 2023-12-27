@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "rentzy-kotlin"
 include(":app")
- 
+include(":core2")
