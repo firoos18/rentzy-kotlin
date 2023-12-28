@@ -1,5 +1,6 @@
 package com.example.rentzy_kotlin.unitList
 
+import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
@@ -24,6 +25,7 @@ class UnitListViewModel(
         unitList.onEach { result ->
             when(result) {
                 is com.example.core2.utils.Resource.Success -> {
+                    Log.e("VIEWMODEL", result.data.toString())
                     _state.value = UnitListState(units = result.data ?: emptyList())
                 }
                 is com.example.core2.utils.Resource.Error -> {

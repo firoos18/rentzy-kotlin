@@ -1,5 +1,6 @@
 package com.example.core2.remote
 
+import android.util.Log
 import com.example.core2.domain.models.Unit
 import com.example.core2.domain.repository.UnitRepository
 import com.example.core2.utils.Resource
@@ -15,6 +16,7 @@ class UnitRepositoryImpl (
         val snapshotListener = unitRefs.addSnapshotListener { snapshot, e ->
             val unitResponse = if (snapshot != null && !snapshot.isEmpty) {
                 val units = snapshot.toObjects(Unit::class.java)
+                Log.e("UNITS", units.toString())
                 Resource.Success(units)
             } else {
                 Resource.Error(e?.localizedMessage ?: "An Unknown Error Occurred")
